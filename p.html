@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RJ Saad – Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #f3f4f6;
+        background-color: #111827;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(rgba(23, 34, 56, 0.9), rgba(21, 30, 51, 0.9)),
+          url("moon.jpg") center/cover no-repeat;
+        z-index: -1;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 2.5rem;
+        background: linear-gradient(90deg, red, red);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradientFlow 3s ease infinite;
+        background-size: 200% 200%;
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(90deg, #3b82f6, #d946ef);
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* typing cursor */
+      .typing-text {
+        position: relative;
+      }
+      .typing-text::after {
+        content: "|";
+        animation: blink 1s infinite;
+        position: absolute;
+        right: -10px;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .social-icon {
+        transition: transform 0.3s ease;
+      }
+      .social-icon:hover {
+        transform: translateY(-5px);
+      }
+
+      .download-btn {
+        position: relative;
+        overflow: hidden;
+      }
+      .download-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: -100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+        transition: all 0.6s ease;
+      }
+      .download-btn:hover::before {
+        left: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full bg-gray-900/80 backdrop-blur-sm z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <div class="logo">CodeCove</div>
+          <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link text-gray-300 hover:text-white">Home</a>
+            <a href="#about" class="nav-link text-gray-300 hover:text-white">About</a>
+            <a href="#projects" class="nav-link text-gray-300 hover:text-white">Projects</a>
+            <a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
+          </div>
+          <!-- Mobile Menu Button (functionality can be added later) -->
+          <button class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <!-- Text Column -->
+          <div>
+            <h1 class="font-bold mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+              <span class="block text-gray-300">Hello, It's Me</span>
+              <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 typing-text">RJ Saad</span>
+            </h1>
+            <p class="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed">
+              And I'm a <span class="font-semibold text-blue-400">Frontend Developer</span> with expertise in creating responsive, modern web applications. I specialize in turning ideas into elegant and functional user interfaces.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
+              <a href="#contact" class="text-center bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300">Hire Me</a>
+              <a href="#projects" class="text-center border border-gray-700 px-6 py-3 rounded-lg text-gray-300 font-medium hover:bg-gray-800 transition-all duration-300">View Work</a>
+            </div>
+          </div>
+
+          <!-- Image Column -->
+          <div class="relative">
+            <!-- Color blobs -->
+            <div class="absolute -top-8 -left-8 w-40 sm:w-48 h-40 sm:h-48 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute -bottom-8 -right-8 w-40 sm:w-48 h-40 sm:h-48 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-24 sm:top-32 -right-4 w-40 sm:w-48 h-40 sm:h-48 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+
+            <!-- Profile Image -->
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6e8a6956-ed2b-4611-b3db-7e3d0608ef71.png" alt="RJ Saad" class="relative z-10 w-4/5 xs:w-3/4 sm:w-4/5 md:w-[450px] lg:w-[500px] mx-auto md:mx-0 rounded-2xl shadow-xl" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-center text-3xl sm:text-4xl font-bold mb-12">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">About</span>
+          <span class="text-white"> Me</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="RJ Saad working on laptop with code in the background" class="rounded-lg shadow-xl w-full" />
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Experienced Frontend Developer</h3>
+            <p class="text-gray-400 mb-4 leading-relaxed">
+              With over 3 years of professional experience, I've successfully delivered projects ranging from simple landing pages to complex web applications. My journey in web development began when I built my first website at 17, and since then I've been passionate about creating beautiful, functional interfaces.
+            </p>
+            <p class="text-gray-400 mb-4 leading-relaxed">
+              I specialize in JavaScript frameworks like React.js and Vue.js, and I'm obsessed with performance optimization and clean code principles. My approach combines technical expertise with an eye for design, resulting in products that look great and perform exceptionally.
+            </p>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              Beyond coding, I stay updated with the latest web technologies through continuous learning. I believe in building accessible web experiences that work for everyone, regardless of their device or ability.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-gray-800 rounded-lg text-blue-400 font-medium">HTML5</span>
+              <span class="px-4 py-2 bg-gray-800 rounded-lg text-blue-400 font-medium">CSS3</span>
+              <span class="px-4 py-2 bg-gray-800 rounded-lg text-blue-400 font-medium">JavaScript</span>
+              <span class="px-4 py-2 bg-gray-800 rounded-lg text-blue-400 font-medium">React</span>
+              <span class="px-4 py-2 bg-gray-800 rounded-lg text-blue-400 font-medium">Vue</span>
+              <span class="px-4 py-2 bg-gray-800 rounded-lg text-blue-400 font-medium">Tailwind</span>
+              <span class="px-4 py-2 bg-gray-800 rounded-lg text-blue-400 font-medium">Git</span>
+              <span class="px-4 py-2 bg-gray-800 rounded-lg text-blue-400 font-medium">Figma</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-b from-gray-800 to-gray-900 text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">Ready to Build Something Amazing?</h2>
+      <p class="text-gray-400 mb-10 max-w-2xl mx-auto">I'm currently accepting new projects and would love to hear about yours. Let's discuss how I can help bring your vision to life.</p>
+      <a href="#" class="download-btn inline-block bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-4 rounded-lg text-white font-medium shadow-lg hover:shadow-blue-500/40 transition-all duration-300">Download CV</a>
+      <div class="flex justify-center gap-4 pt-8">
+        <!-- Social icons (unchanged) -->
+        <!-- Use the same SVG icons and classes you already have -->
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 py-8 text-center">
+      <p class="text-gray-500">© 2023 RJ Saad | Frontend Developer. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript (typing & smooth scroll) -->
+    <script>
+      const phrases = ["RJ Saad", "Frontend Developer", "UI Specialist", "React Expert"];
+      let currentPhrase = 0;
+      let currentCharacter = 0;
+      let typingTimeout;
+      function typeWriter() {
+        const typingElement = document.querySelector(".typing-text");
+        if (currentCharacter < phrases[currentPhrase].length) {
+          typingElement.textContent = phrases[currentPhrase].substring(0, currentCharacter + 1);
+          currentCharacter++;
+          typingTimeout = setTimeout(typeWriter, 100);
+        } else {
+          setTimeout(erase, 1500);
+        }
+      }
+      function erase() {
+        const typingElement = document.querySelector(".typing-text");
+        if (currentCharacter > 0) {
+          typingElement.textContent = phrases[currentPhrase].substring(0, currentCharacter - 1);
+          currentCharacter--;
+          typingTimeout = setTimeout(erase, 50);
+        } else {
+          currentPhrase = (currentPhrase + 1) % phrases.length;
+          setTimeout(typeWriter, 500);
+        }
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeWriter, 1000);
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener("click", e => {
+            e.preventDefault();
+            document.querySelector(anchor.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
